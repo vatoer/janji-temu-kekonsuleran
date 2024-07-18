@@ -1,5 +1,5 @@
 import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getMessages } from "next-intl/server";
+import { getMessages } from "next-intl/server";
 
 export default async function LocaleLayout({
   children,
@@ -8,9 +8,11 @@ export default async function LocaleLayout({
 }) {
   // Providing all messages to the client
   // side is the easiest way to get started
-  const locale = await getLocale();
+  //const locale = await getLocale();
 
-  const messages = await getMessages();
+  // Retrieve the locale from cookies or default to 'id'
+  const locale = "en";
+  const messages = await getMessages({ locale });
 
   return (
     <html lang={locale}>

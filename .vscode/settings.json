@@ -13,5 +13,7 @@
   "files.eol": "\n",
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
-  }
+  },
+  "i18n-ally.localesPaths": ["./messages"], // E.g. "./messages"
+  "i18n-ally.keystyle": "nested"
 }
