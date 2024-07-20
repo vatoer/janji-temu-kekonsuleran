@@ -1,5 +1,15 @@
 {
   "HomePage": {
     "title": "Selamat datang di situs web resmi janji temu layanan kekonsuleran"
+  },
+  "Login": {
+    "title": "Masuk",
+    "login": "Masuk",
+    "withGoogle": "Masuk dengan Google",
+    "haveAccount": "Belum mempunyai akun?",
+    "register": "Daftar",
+    "username": "Nama pengguna",
+    "email": "Email",
+    "password": "Kata sandi"
   }
 }

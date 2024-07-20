@@ -7,33 +7,68 @@ body,
 :root {
   height: 100%;
 }
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: 210 60% 98%; /* light blue background */
+    --foreground: 220 90% 20%; /* dark blue foreground */
+    --card: 210 60% 98%;
+    --card-foreground: 220 90% 20%;
+    --popover: 210 60% 98%;
+    --popover-foreground: 220 90% 20%;
+    --primary: 220 70% 50%; /* blue */
+    --primary-foreground: 210 100% 98%;
+    --secondary: 210 50% 90%; /* light blue */
+    --secondary-foreground: 220 70% 50%;
+    --muted: 210 50% 90%;
+    --muted-foreground: 220 40% 50%;
+    --accent: 210 50% 90%;
+    --accent-foreground: 220 70% 50%;
+    --destructive: 0 84.2% 60.2%; /* red for destructive actions */
+    --destructive-foreground: 210 100% 98%;
+    --border: 210 30% 88%; /* light blue-gray border */
+    --input: 210 30% 88%; /* light blue-gray input */
+    --ring: 220 90% 20%; /* dark blue ring */
+    --radius: 0.5rem;
+    --chart-1: 210 76% 61%; /* chart color variations in blue */
+    --chart-2: 210 58% 39%;
+    --chart-3: 210 37% 24%;
+    --chart-4: 210 74% 66%;
+    --chart-5: 210 87% 67%;
+  }
+
+  .dark {
+    --background: 220 90% 20%; /* dark blue background */
+    --foreground: 210 100% 98%; /* very light blue foreground */
+    --card: 220 90% 20%;
+    --card-foreground: 210 100% 98%;
+    --popover: 220 90% 20%;
+    --popover-foreground: 210 100% 98%;
+    --primary: 210 100% 98%;
+    --primary-foreground: 220 70% 50%;
+    --secondary: 220 50% 30%; /* darker blue for secondary */
+    --secondary-foreground: 210 100% 98%;
+    --muted: 220 50% 30%;
+    --muted-foreground: 210 40% 70%; /* muted blue-gray */
+    --accent: 220 50% 30%;
+    --accent-foreground: 210 100% 98%;
+    --destructive: 0 62.8% 30.6%; /* dark red for destructive actions */
+    --destructive-foreground: 210 100% 98%;
+    --border: 220 50% 30%;
+    --input: 220 50% 30%;
+    --ring: 210 40% 60%; /* blue-gray ring */
+    --chart-1: 210 70% 50%;
+    --chart-2: 210 60% 45%;
+    --chart-3: 210 80% 55%;
+    --chart-4: 210 65% 60%;
+    --chart-5: 210 75% 55%;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
