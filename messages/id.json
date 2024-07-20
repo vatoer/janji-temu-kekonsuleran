@@ -1,6 +1,27 @@
 {
+  "Appointment": {
+    "title": "Janji temu",
+    "description": "Buat janji temu layanan kekonsuleran dengan mudah dan cepat.",
+    "makeAppointment": "Buat janji temu",
+    "date": "Tanggal janji temu",
+    "time": "Waktu janji temu",
+    "status": "Status janji temu",
+    "detail": "Detail janji temu",
+    "appointment": "Janji temu",
+    "appointments": "Janji temu",
+    "list": "Daftar janji temu"
+  },
+  "PublicPage": {
+    "title": "Halaman publik",
+    "description": "Halaman publik situs web resmi janji temu layanan kekonsuleran."
+  },
   "HomePage": {
-    "title": "Selamat datang di situs web resmi janji temu layanan kekonsuleran"
+    "title": "Selamat datang di situs web resmi janji temu layanan kekonsuleran",
+    "description": "Situs web ini memungkinkan Anda untuk membuat janji temu layanan kekonsuleran dengan mudah dan cepat.",
+    "makeAppointment": "Buat janji temu",
+    "login": "Masuk",
+    "logout": "Keluar",
+    "profile": "Profil"
   },
   "Login": {
     "title": "Masuk",
@@ -13,5 +34,49 @@
     "username": "Nama pengguna",
     "email": "Email",
     "password": "Kata sandi"
+  },
+  "Menu": {
+    "home": "Beranda",
+    "appointment": "Janji temu",
+    "appointments": "Janji temu",
+    "profile": "Profil",
+    "login": "Masuk",
+    "logout": "Keluar",
+    "register": "Daftar",
+    "services": "Layanan",
+    "about": "Tentang",
+    "contact": "Kontak"
+  },
+  "Layanan": {
+    "title": "Layanan",
+    "description": "Layanan yang tersedia di situs web resmi janji temu layanan kekonsuleran.",
+    "paspor": {
+      "title": "Paspor",
+      "description": "Layanan pembuatan paspor.",
+      "dewasa": {
+        "title": "Paspor Dewasa",
+        "description": "Layanan pembuatan paspor untuk dewasa.",
+        "syarat": {
+          "title": "Syarat pembuatan paspor dewasa",
+          "description": "Syarat pembuatan paspor untuk dewasa."
+        }
+      },
+      "anak": {
+        "title": "Paspor Anak WNI",
+        "description": "Layanan pembuatan paspor untuk dewasa.",
+        "syarat": {
+          "title": "Syarat pembuatan paspor dewasa",
+          "description": "Syarat pembuatan paspor untuk dewasa."
+        }
+      },
+      "anakWNGanda": {
+        "title": "Paspor Anak Berkewarganegaraan Ganda",
+        "description": "Layanan pembuatan paspor untuk dewasa.",
+        "syarat": {
+          "title": "Syarat pembuatan paspor dewasa",
+          "description": "Syarat pembuatan paspor untuk dewasa."
+        }
+      }
+    }
   }
 }

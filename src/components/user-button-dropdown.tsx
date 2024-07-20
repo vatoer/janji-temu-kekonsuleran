@@ -55,7 +55,7 @@ const UserButtonDropdown = ({ user }: UserButtonProps) => (
           onClick={() => signOut({ callbackUrl: "/" })}
         >
           <LogOut size={9} />
-          <span>Sign out</span>
+          <span>Logout</span>
         </DropdownMenuItem>
       </DropdownMenuGroup>
     </DropdownMenuContent>

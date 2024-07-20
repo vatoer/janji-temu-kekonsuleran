@@ -27,9 +27,9 @@ export function middleware(request: NextRequest) {
   }
 
   const { nextUrl } = request;
-  if (nextUrl.pathname === "/") {
-    return NextResponse.redirect(new URL("/home", request.url));
-  }
+  // if (nextUrl.pathname === "/") {
+  //   return NextResponse.redirect(new URL("/home", request.url));
+  // }
   return NextResponse.next();
 }
 
