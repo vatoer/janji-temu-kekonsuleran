@@ -1,27 +1,27 @@
 import Cookies from "js-cookie";
 
 // Set user locale in local storage
-export function setUserLocale(locale: string): void {
-  localStorage.setItem("user-locale", locale);
+export function setAppLocale(locale: string): void {
+  localStorage.setItem("app-locale", locale);
 }
 
 // Get user locale from local storage
-export function getUserLocale(): string | null {
-  return localStorage.getItem("user-locale");
+export function getAppLocale(): string | null {
+  return localStorage.getItem("app-locale");
 }
 
 // Set user locale in cookies
-export function setUserLocaleCookie(locale: string): void {
-  Cookies.set("user-locale", locale, { expires: 365 });
+export function setAppLocaleCookie(locale: string): void {
+  Cookies.set("app-locale", locale, { expires: 365 });
 }
 
 // Get user locale from cookies
-export function getUserLocaleCookie(): string | undefined {
+export function getAppLocaleCookie(): string | undefined {
   console.log(
-    `[utils locale] User locale from getUserLocaleCookie : ${Cookies.get(
-      "user-locale"
+    `[utils locale] User locale from getAppLocaleCookie : ${Cookies.get(
+      "app-locale"
     )}`
   );
   console.log(Cookies.get());
-  return Cookies.get("user-locale");
+  return Cookies.get("app-locale");
 }

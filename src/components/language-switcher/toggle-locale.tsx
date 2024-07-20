@@ -1,12 +1,12 @@
 "use client";
-import { setUserLocale, setUserLocaleCookie } from "@/utils/locale";
+import { setAppLocale, setAppLocaleCookie } from "@/utils/locale";
 
 const ToggleLocal = () => {
   const handleChangeLocale = (locale: string) => {
     // set cache locale
     // Update local storage
-    setUserLocale(locale);
-    setUserLocaleCookie(locale);
+    setAppLocale(locale);
+    setAppLocaleCookie(locale);
     window.location.reload();
   };
   return (

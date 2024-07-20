@@ -31,13 +31,13 @@ const UserButtonDropdown = ({ user }: UserButtonProps) => (
   <DropdownMenu>
     <DropdownMenuTrigger className="items-center flex outline-none">
       <Avatar className="w-9 h-9">
-        <AvatarImage src={user.image ?? "/images/avatar.svg"} sizes="9" />
+        <AvatarImage src={user.image ?? undefined} sizes="9" />
         <AvatarFallback className="w-9 h-9 text-sm">
           {getInitials(user.name ?? user.email ?? "Guest")}
         </AvatarFallback>
       </Avatar>
     </DropdownMenuTrigger>
-    <DropdownMenuContent>
+    <DropdownMenuContent align="end">
       <DropdownMenuLabel>
         {user.name ?? user.email ?? "Unknown"}
       </DropdownMenuLabel>

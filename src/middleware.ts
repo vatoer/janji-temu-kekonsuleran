@@ -20,8 +20,8 @@ export function middleware(request: NextRequest) {
   console.log("[Middleware] Request URL:", request.url);
   const cookieHeader = request.headers.get("Cookie");
   if (cookieHeader) {
-    const userLocale = getCookieValue(cookieHeader, "user-locale");
-    console.log(userLocale);
+    const appLocale = getCookieValue(cookieHeader, "app-locale");
+    console.log(appLocale);
   } else {
     console.log("No cookies found");
   }

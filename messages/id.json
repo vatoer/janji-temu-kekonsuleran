@@ -6,8 +6,10 @@
     "title": "Masuk",
     "login": "Masuk",
     "withGoogle": "Masuk dengan Google",
-    "haveAccount": "Belum mempunyai akun?",
+    "dontHaveAccount": "Belum mempunyai akun?",
+    "haveAccount": "Sudah mempunyai akun?",
     "register": "Daftar",
+    "name": "Nama",
     "username": "Nama pengguna",
     "email": "Email",
     "password": "Kata sandi"

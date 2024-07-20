@@ -1,9 +1,9 @@
 "use server";
-import { DEFAULT_ROUTE_AFTER_LOGIN } from "@/routes";
+import { DEFAULT_ROUTE_AFTER_LOGIN } from "@/route";
+import { userCreate } from "@auth/_data/user";
+import { signIn } from "@auth/auth";
 import { AuthError } from "next-auth";
 import * as z from "zod";
-import { userCreate } from "../../_data/user";
-import { signIn } from "../../auth";
 import { RegisterSchema } from "../_schema/register";
 
 type TRegister = z.infer<typeof RegisterSchema>;

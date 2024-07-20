@@ -1,5 +1,17 @@
 {
   "HomePage": {
     "title": "Bienvenue sur le site officiel de rendez-vous des services consulaires"
+  },
+  "Login": {
+    "title": "Se connecter",
+    "login": "Se connecter",
+    "withGoogle": "Continuer avec Google",
+    "dontHaveAccount": "Vous n'avez pas de compte?",
+    "haveAccount": "Vous avez déjà un compte?",
+    "register": "S'inscrire",
+    "name": "nom et prénom",
+    "username": "nom d'utilisateur",
+    "email": "email",
+    "password": "mot de passe"
   }
 }

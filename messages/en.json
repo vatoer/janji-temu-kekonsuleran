@@ -1,5 +1,17 @@
 {
   "HomePage": {
     "title": "Welcome to the official consular services appointment website"
+  },
+  "Login": {
+    "title": "Login",
+    "login": "Login",
+    "withGoogle": "Continue with Google",
+    "dontHaveAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?",
+    "register": "Register",
+    "name": "name",
+    "username": "username",
+    "email": "email",
+    "password": "password"
   }
 }

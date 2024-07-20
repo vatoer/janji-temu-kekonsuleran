@@ -1,8 +1,9 @@
 "use client";
+import LogoMix from "@/components/logo-mix";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, Loader } from "lucide-react";
-import Image from "next/image";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useTransition } from "react";
@@ -40,33 +41,26 @@ const RegisterForm = () => {
       }
     });
   };
+  const t = useTranslations("Login");
 
   return (
-    <>
-      <div className="flex flex-col items-center gap-2 mb-4">
-        <Image
-          src="/logo.png"
-          alt="Logo"
-          width={72}
-          height={72}
-          className="mx-auto rounded-full"
-        />
-      </div>
+    <div className="flex flex-col gap-2 mb-4">
+      <LogoMix />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-4"
+        className="flex flex-col gap-4 p-2"
         noValidate
       >
         <InputForm
           id="name"
-          label="Name"
+          label={t("name")}
           type="text"
           register={register}
           error={errors.name}
         />
         <InputForm
           id="email"
-          label="Email"
+          label={t("email")}
           type="text"
           register={register}
           error={errors.email}
@@ -74,7 +68,7 @@ const RegisterForm = () => {
         />
         <InputForm
           id="password"
-          label="password"
+          label={t("password")}
           type="password"
           register={register}
           error={errors.password}
@@ -83,7 +77,7 @@ const RegisterForm = () => {
         <FormError message={error} />
 
         <Button className=" w-full py-6" disabled={isPending} type="submit">
-          Register
+          {t("register")}
           {isPending && (
             <Loader className="ml-2 spin-in" size={24} color="white" />
           )}
@@ -91,19 +85,19 @@ const RegisterForm = () => {
         <div className="flex items-center before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
           <p className="text-center font-semibold mx-4 mb-0">OR</p>
         </div>
-        <ButtonWithGoogle callbackUrl={callbackUrl} />
+        <ButtonWithGoogle callbackUrl={callbackUrl} text={t("withGoogle")} />
         <Link
-          href="/signin"
+          href="/login"
           className={buttonVariants({
             variant: "link",
             className: "gap-1.5 w-full text-blue-500",
           })}
         >
-          {`Already have an account? Login`}
+          {t("haveAccount")} {t("login")}
           <ArrowRight className="h-4 w-4 ml-1" />
         </Link>
       </form>
-    </>
+    </div>
   );
 };
 

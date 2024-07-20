@@ -1,5 +1,5 @@
 import { auth } from "@/app/(auth)/auth";
-import ToggleLocal from "@/components/toggle-locale";
+import ToggleLocal from "@/components/language-switcher/toggle-locale";
 import UserButtonDropdown from "@/components/user-button-dropdown";
 import { getTranslations } from "next-intl/server";
 
@@ -10,7 +10,7 @@ const HomePage = async () => {
     user.name = session.user.name!;
   }
 
-  const t = await getTranslations("Login");
+  const t = await getTranslations("HomePage");
 
   return (
     <>

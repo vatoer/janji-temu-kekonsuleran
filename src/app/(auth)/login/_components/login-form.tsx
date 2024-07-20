@@ -1,4 +1,5 @@
 "use client";
+import LogoMix from "@/components/logo-mix";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ButtonWithGoogle } from "@auth/_components/button-with-google";
 import { FormError } from "@auth/_components/form-error";
@@ -8,7 +9,6 @@ import { LoginSchema, TLogin } from "@auth/login/_schema/login";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowRight, Loader } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useTransition } from "react";
@@ -45,75 +45,56 @@ const LoginForm = () => {
   const t = useTranslations("Login");
 
   return (
-    <>
-      <div className="flex flex-col justify-center items-center gap-2 mb-4">
-        <div className="flex flex-row h-44 relative">
-          <Image
-            src="/logo.svg"
-            alt="Logo"
-            width={72}
-            height={144}
-            className="mx-auto rounded-none hidden md:block w-full "
-          />
-          <Image
-            src="/logo.png"
-            alt="Logo"
-            width={72}
-            height={72}
-            className="mx-auto rounded-none hidden md:block
-            absolute top-10 right-0"
-          />
+    <div className="flex flex-col gap-2 mb-4">
+      <LogoMix />
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col gap-4 p-2"
+        noValidate
+      >
+        <InputForm
+          id="email"
+          label={t("email")}
+          type="text"
+          register={register}
+          error={errors.email}
+          pattern="/^[^\s@]+@[^\s@]+\.[^\s@]+$/"
+        />
+        <InputForm
+          id="password"
+          label={t("password")}
+          type="password"
+          register={register}
+          error={errors.password}
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+        />
+        <FormError message={error} />
+        <Button className=" w-full py-6" disabled={isPending} type="submit">
+          {t("login")}
+          {isPending && (
+            <Loader className="ml-2 spin-in" size={24} color="white" />
+          )}
+        </Button>
+        <div className="flex items-center before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
+          <p className="text-center font-semibold mx-4 mb-0">OR</p>
         </div>
-
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-4"
-          noValidate
+        <ButtonWithGoogle
+          disabled={isPending}
+          callbackUrl={callbackUrl}
+          text={t("withGoogle")}
+        />
+        <Link
+          href="/register"
+          className={buttonVariants({
+            variant: "link",
+            className: "gap-1.5 w-full text-blue-500",
+          })}
         >
-          <InputForm
-            id="email"
-            label="Email"
-            type={t("email")}
-            register={register}
-            error={errors.email}
-            pattern="/^[^\s@]+@[^\s@]+\.[^\s@]+$/"
-          />
-          <InputForm
-            id="password"
-            label={t("password")}
-            type="password"
-            register={register}
-            error={errors.password}
-            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-          />
-          <FormError message={error} />
-          <Button className=" w-full py-6" disabled={isPending} type="submit">
-            {t("login")}
-            {isPending && (
-              <Loader className="ml-2 spin-in" size={24} color="white" />
-            )}
-          </Button>
-          <div className="flex items-center before:flex-1 before:border-t before:border-gray-300 before:mt-0.5 after:flex-1 after:border-t after:border-gray-300 after:mt-0.5">
-            <p className="text-center font-semibold mx-4 mb-0">OR</p>
-          </div>
-          <ButtonWithGoogle
-            disabled={isPending}
-            callbackUrl={callbackUrl}
-            text={t("withGoogle")}
-          />
-          <Link
-            href="/register"
-            className={buttonVariants({
-              variant: "link",
-              className: "gap-1.5 w-full text-blue-500",
-            })}
-          >
-            {t("haveAccount")} {t("register")}
-            <ArrowRight className="h-4 w-4 ml-1" />
-          </Link>
-        </form>
-      </div>
-    </>
+          {t("dontHaveAccount")} {t("register")}
+          <ArrowRight className="h-4 w-4 ml-1" />
+        </Link>
+      </form>
+    </div>
   );
 };
 
