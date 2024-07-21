@@ -1,9 +1,12 @@
 import { useTranslations } from "next-intl";
 import { FaPassport } from "react-icons/fa6";
+import { HiDocumentText } from "react-icons/hi2";
+import { PiSealCheck } from "react-icons/pi";
+import { AccordionLayananDokumenLegalisasi } from "./_components/accordion-layanan-dokumen-legalisasi";
+import { AccordionLayananPaspor } from "./_components/accordion-layanan-paspor";
 
 export default function PublicPage() {
   const t = useTranslations("PublicPage");
-  const s = useTranslations("Layanan.paspor");
 
   return (
     <div className="flex flex-col p-2 gap-2">
@@ -24,20 +27,20 @@ export default function PublicPage() {
             >
               Permenkumham no.18 tahun 2022
             </a>
+            <AccordionLayananPaspor />
           </div>
+        </div>
+
+        <div className="flex flex-col gap-4 border-2 md:w-1/2 p-4 border-gray-200">
           <div>
-            <h1 className="w-full text-center text-xl">Layanan Paspor</h1>
-            <ul className="">
-              <li>
-                <a href="/">{s("dewasa.title")}</a>
-              </li>
-              <li>
-                <a href="/about">{s("anak.title")}</a>
-              </li>
-              <li>
-                <a href="/contact">{s("anakWNGanda.title")}</a>
-              </li>
-            </ul>
+            <div className="flex flex-row justify-center">
+              <HiDocumentText className="w-16 h-16" />
+              <PiSealCheck className="h-16 w-16" />
+            </div>
+            <h1 className="w-full text-center text-xl">
+              Layanan Dokumen & Legalisasi
+            </h1>
+            <AccordionLayananDokumenLegalisasi />
           </div>
         </div>
       </div>

@@ -13,5 +13,89 @@
     "username": "username",
     "email": "email",
     "password": "password"
+  },
+  "Layanan": {
+    "title": "Services",
+    "description": "Layanan yang tersedia di situs web resmi janji temu layanan kekonsuleran.",
+    "paspor": {
+      "title": "Passport",
+      "description": "Layanan pembuatan paspor.",
+      "dewasa": {
+        "title": "Passport for Adults",
+        "description": "Layanan pembuatan paspor untuk dewasa.",
+        "syarat": {
+          "title": "Syarat pembuatan paspor dewasa",
+          "description": "Syarat pembuatan paspor untuk dewasa."
+        }
+      },
+      "anak": {
+        "title": "Passport for Indonesian Citizen Children",
+        "description": "Layanan pembuatan paspor untuk dewasa.",
+        "syarat": {
+          "title": "Syarat pembuatan paspor dewasa",
+          "description": "Syarat pembuatan paspor untuk dewasa."
+        }
+      },
+      "anakWNGanda": {
+        "title": "Passport for Children with Dual Citizenship",
+        "description": "Layanan pembuatan paspor untuk dewasa.",
+        "syarat": {
+          "title": "Syarat pembuatan paspor dewasa",
+          "description": "Syarat pembuatan paspor untuk dewasa."
+        }
+      }
+    },
+    "dokumenLegalisasi": {
+      "title": "A. Legalization-Apostille",
+      "description": "Layanan legalisasi dokumen.",
+      "legalisasi": {
+        "title": "A. Legalisasi-Apostille",
+        "description": "replace with MDX content"
+      },
+      "certificatDeCoutume": {
+        "title": "B. Certificat de Coutume",
+        "description": "replace with MDX content"
+      },
+      "suketPencatatanPernikahan": {
+        "title": " C. Certificate of Marriage Registration",
+        "description": "replace with MDX content"
+      },
+      "suketPencatatanPerceraian": {
+        "title": "D. Certificate of Divorce Registration",
+        "description": "replace with MDX content"
+      },
+      "suketKematianBawaJenazahKeIndonesia": {
+        "title": "E. Death Certificates for Bodies to be brought to Indonesia ",
+        "description": "replace with MDX content"
+      },
+      "suketKematian": {
+        "title": " F. Death Certificate",
+        "description": "replace with MDX content"
+      },
+      "legalisasiSuratKuasa": {
+        "title": " G. Legalization of Power of Attorney (WNI to WNI)",
+        "description": "replace with MDX content"
+      },
+      "suketMembawaBarangPindahan": {
+        "title": " H. Letters Carrying Moving Goods to Indonesia",
+        "description": "replace with MDX content"
+      },
+      "suketMembawaAbuJenazah": {
+        "title": " I. Certificate to bring the ashes of the deceased",
+        "description": "replace with MDX content"
+      },
+      "suketPenjelasanNama": {
+        "title": " J. Attestation de Concordance (name explanation)",
+        "description": "replace with MDX content"
+      },
+      "legalisasiDokumenPrancis": {
+        "title": " K. Legalization of French Documents",
+        "description": "replace with MDX content"
+      },
+      "permohonanLainnya": {
+        "title": " L. Other applications",
+        "description": "replace with MDX content"
+      }
+    }
   }
 }

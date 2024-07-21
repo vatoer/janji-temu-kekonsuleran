@@ -77,6 +77,58 @@
           "description": "Syarat pembuatan paspor untuk dewasa."
         }
       }
+    },
+    "dokumenLegalisasi": {
+      "title": "A. Dokumen Legalisasi",
+      "description": "Layanan legalisasi dokumen.",
+      "legalisasi": {
+        "title": "A. Legalisasi-Apostille",
+        "description": "replace with MDX content"
+      },
+      "certificatDeCoutume": {
+        "title": "B. Certificat de Coutume",
+        "description": "replace with MDX content"
+      },
+      "suketPencatatanPernikahan": {
+        "title": " C. Surat Keterangan Pencatatan Pernikahan",
+        "description": "replace with MDX content"
+      },
+      "suketPencatatanPerceraian": {
+        "title": " D. Surat Keterangan Pencatatan Perceraian",
+        "description": "replace with MDX content"
+      },
+      "suketKematianBawaJenazahKeIndonesia": {
+        "title": " E. Surat Keterangan Kematian untuk Jenazah yang akan dibawa ke Indonesia",
+        "description": "replace with MDX content"
+      },
+      "suketKematian": {
+        "title": " F. Surat Keterangan Kematian",
+        "description": "replace with MDX content"
+      },
+      "legalisasiSuratKuasa": {
+        "title": " G. Legalisasi Surat Kuasa(WNI ke WNI)",
+        "description": "replace with MDX content"
+      },
+      "suketMembawaBarangPindahan": {
+        "title": " H. Surat Keterangan Membawa Barang Pindahan",
+        "description": "replace with MDX content"
+      },
+      "suketMembawaAbuJenazah": {
+        "title": " I. Surat Keterangan Membawa Abu Jenazah",
+        "description": "replace with MDX content"
+      },
+      "suketPenjelasanNama": {
+        "title": " J. Surat Keterangan Penjelasan Nama",
+        "description": "replace with MDX content"
+      },
+      "legalisasiDokumenPrancis": {
+        "title": " K. Legalisasi Dokumen Prancis",
+        "description": "replace with MDX content"
+      },
+      "permohonanLainnya": {
+        "title": " L. Permohonan Lainnya",
+        "description": "replace with MDX content"
+      }
     }
   }
 }
