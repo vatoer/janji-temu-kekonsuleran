@@ -16,7 +16,7 @@ export const AccordionContentLayanan = async ({
   //   fetchingMDX();
   // }, []);
   const content = await getMdxContent("en", "layanan");
-  console.log(content);
+  //console.log(content);
   //return content;
   return <AccordionContent>{content.content}</AccordionContent>;
 };

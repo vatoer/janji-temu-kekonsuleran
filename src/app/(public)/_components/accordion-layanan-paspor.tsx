@@ -1,36 +1,34 @@
+import getPassportServices from "@/actions/services";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { useTranslations } from "next-intl";
+import { getLocale, getTranslations } from "next-intl/server";
 
-export function AccordionLayananPaspor() {
-  const tl = useTranslations("Layanan.paspor");
+export async function AccordionLayananPaspor() {
+  const tl = await getTranslations("Layanan.paspor");
+  const locale = await getLocale();
+  console.log({ tl, locale });
+  const passportServices = await getPassportServices(locale);
+
+  if (!passportServices.success) {
+    return <div>Failed to load data</div>;
+  }
 
   return (
     <Accordion type="single" collapsible className="w-full">
-      <AccordionItem value="item-1">
-        <AccordionTrigger>{tl("dewasa.title")}</AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger>{tl("anakWNGanda.title")}</AccordionTrigger>
-        <AccordionContent>
-          Yes. It comes with default styles that matches the other
-          components&apos; aesthetic.
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger>{tl("anak.title")}</AccordionTrigger>
-
-        <AccordionContent>
-          Yes. It's animated by default, but you can disable it if you prefer.
-        </AccordionContent>
-      </AccordionItem>
+      {passportServices.data.map((service) => (
+        <AccordionItem key={service.id} value={service.id}>
+          <AccordionTrigger className="text-start">
+            {service.tname || service.name}
+          </AccordionTrigger>
+          <AccordionContent>
+            {service.tdescription || service.description}
+          </AccordionContent>
+        </AccordionItem>
+      ))}
     </Accordion>
   );
 }

@@ -14,6 +14,18 @@
     "email": "email",
     "password": "password"
   },
+  "Menu": {
+    "home": "Home",
+    "appointment": "Appointment",
+    "appointments": "appointments",
+    "profile": "Profile",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "services": "Services",
+    "about": "About",
+    "contact": "Contact"
+  },
   "Layanan": {
     "title": "Services",
     "description": "Layanan yang tersedia di situs web resmi janji temu layanan kekonsuleran.",

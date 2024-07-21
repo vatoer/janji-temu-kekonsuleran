@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl";
 import { FaPassport } from "react-icons/fa6";
 import { HiDocumentText } from "react-icons/hi2";
 import { PiSealCheck } from "react-icons/pi";
@@ -6,8 +5,6 @@ import { AccordionLayananDokumenLegalisasi } from "./_components/accordion-layan
 import { AccordionLayananPaspor } from "./_components/accordion-layanan-paspor";
 
 export default function PublicPage() {
-  const t = useTranslations("PublicPage");
-
   return (
     <div className="flex flex-col p-2 gap-2">
       <div className="flex flex-col md:flex-row justify-between w-full gap-2">
