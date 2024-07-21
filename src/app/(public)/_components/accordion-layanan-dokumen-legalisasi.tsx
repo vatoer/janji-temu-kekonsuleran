@@ -1,10 +1,10 @@
 import {
   Accordion,
-  AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { useTranslations } from "next-intl";
+import { AccordionContentLayanan } from "./accordion-content-layanan";
 
 export function AccordionLayananDokumenLegalisasi() {
   const tl = useTranslations("Layanan.dokumenLegalisasi");
@@ -30,7 +30,8 @@ export function AccordionLayananDokumenLegalisasi() {
           <AccordionTrigger className="text-start">
             {tl(`${key}.title`)}
           </AccordionTrigger>
-          <AccordionContent>{tl(`${key}.description`)}</AccordionContent>
+          {/* <AccordionContent>{tl(`${key}.description`)}</AccordionContent> */}
+          <AccordionContentLayanan tkey={key} />
         </AccordionItem>
       ))}
     </Accordion>
