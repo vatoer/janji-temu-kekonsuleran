@@ -26,3 +26,104 @@ model User {
 
   @@map("user")
 }
+
+model Category {
+  id        String    @id @default(cuid())
+  name      String
+  services  Service[]
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime? @updatedAt @map("updated_at")
+
+  @@map("categories")
+}
+
+model ServiceRequirementTranslation {
+  id                   String             @id @default(uuid())
+  name                 String
+  description          String?
+  language             String
+  locale               String?
+  serviceRequirementId String             @map("service_requirement_id")
+  serviceRequirement   ServiceRequirement @relation(fields: [serviceRequirementId], references: [id])
+  createdAt            DateTime           @default(now()) @map("created_at")
+  updatedAt            DateTime?          @updatedAt @map("updated_at")
+
+  @@unique([serviceRequirementId, language])
+  @@map("service_requirement_translations")
+}
+
+model ServiceRequirement {
+  id                            String                          @id @default(uuid())
+  name                          String
+  type                          String
+  required                      Boolean                         @default(false)
+  description                   String?
+  serviceId                     String                          @map("service_id")
+  service                       Service                         @relation(fields: [serviceId], references: [id])
+  ServiceRequirementTranslation ServiceRequirementTranslation[]
+  createdAt                     DateTime                        @default(now()) @map("created_at")
+  updatedAt                     DateTime?                       @updatedAt @map("updated_at")
+
+  @@map("service_requirements")
+}
+
+model Service {
+  id                  String                @id @default(cuid())
+  name                String
+  description         String?
+  categoryId          String?               @map("category_id")
+  category            Category?             @relation(fields: [categoryId], references: [id])
+  displayOrder        Int                   @default(0) @map("display_order")
+  serviceRequirement  ServiceRequirement[]
+  serviceTranslation  ServiceTranslation[]
+  documentRequirement DocumentRequirement[]
+  createdAt           DateTime              @default(now()) @map("created_at")
+  updatedAt           DateTime?             @updatedAt @map("updated_at")
+
+  @@map("services")
+}
+
+model ServiceTranslation {
+  id          String    @id @default(uuid())
+  name        String
+  description String?
+  language    String
+  locale      String?
+  serviceId   String    @map("service_id")
+  service     Service   @relation(fields: [serviceId], references: [id])
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime? @updatedAt @map("updated_at")
+
+  @@unique([serviceId, language])
+  @@map("service_translations")
+}
+
+model DocumentRequirement {
+  id                             String                           @id @default(cuid())
+  name                           String
+  type                           String
+  required                       Boolean                          @default(false)
+  serviceId                      String                           @map("service_id")
+  displayOrder                   Int                              @default(0) @map("display_order")
+  service                        Service                          @relation(fields: [serviceId], references: [id])
+  documentRequirementTranslation DocumentRequirementTranslation[]
+  createdAt                      DateTime                         @default(now()) @map("created_at")
+  updatedAt                      DateTime?                        @updatedAt @map("updated_at")
+
+  @@map("document_requirements")
+}
+
+model DocumentRequirementTranslation {
+  id                    String              @id @default(uuid())
+  name                  String
+  description           String?
+  language              String
+  locale                String?
+  documentRequirementId String              @map("document_requirement_id")
+  documentRequirement   DocumentRequirement @relation(fields: [documentRequirementId], references: [id])
+  createdAt             DateTime            @default(now()) @map("created_at")
+  updatedAt             DateTime?           @updatedAt @map("updated_at")
+
+  @@unique([documentRequirementId, language])
+  @@map("document_requirement_translations")
+}
