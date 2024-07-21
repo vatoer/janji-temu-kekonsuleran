@@ -11,3 +11,7 @@ jenis translasi yang didukung adalah
 ```sh
 pnpm add zustand
 ```
+
+```sh
+pnpm dlx shadcn-ui@latest add badge
+```

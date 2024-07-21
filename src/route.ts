@@ -1,3 +1,14 @@
+export interface RouteItem {
+  name: string;
+  label: string;
+  href: string;
+  iconName?: string;
+  permissions?: string[];
+  displayOrder?: number;
+  displayAsMenu?: boolean;
+  cascadePermissions?: boolean; // cascade permissions to sub routes
+}
+
 export const authRoutes = [
   "/",
   "/login",
