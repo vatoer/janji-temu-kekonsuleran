@@ -1,6 +1,8 @@
 import LanguageSelector from "@/components/language-switcher/language-selector";
+import getServicesByCategory from "@/data/services";
 
-const SettingServiceTranslation = () => {
+const SettingServiceTranslation = async () => {
+  const services = await getServicesByCategory("translation");
   return (
     <div>
       <h1>Translation</h1>
