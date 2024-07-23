@@ -1,20 +1,28 @@
+import TranslationContainer from "@/app/(admin)/_components/translation-container";
 import LanguageSelector from "@/components/language-switcher/language-selector";
-import getServicesByCategory from "@/data/services";
+import { getServiceWithTranslations } from "@/data/services";
 
 const SettingServiceTranslation = async () => {
-  const services = await getServicesByCategory("translation");
+  const defaultTranslateTo = "en";
+  const services = await getServiceWithTranslations("en");
+  //  const services = await getServiceWithTranslationsByCategories("en", [
+  //   "paspor",
+  //   "legalisasi",
+  // ]);
   return (
-    <div>
+    <div className="p-4">
       <h1>Translation</h1>
       <div>
         <LanguageSelector
-          supportedLanguages={["en", "id"]}
-          defaultLocale="en"
+          supportedLanguages={["en", "fr"]}
+          defaultLocale={defaultTranslateTo}
         />
       </div>
-      <div className="flex flex-row justify-between">
-        <div>kiri</div>
-        <div>kanan</div>
+      <div>
+        <TranslationContainer
+          initialServiceWithTranslations={services}
+          defaultTranslateTo={defaultTranslateTo}
+        />
       </div>
     </div>
   );

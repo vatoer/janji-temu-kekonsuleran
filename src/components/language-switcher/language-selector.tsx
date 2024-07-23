@@ -1,5 +1,6 @@
 "use client";
-import { memo, useState } from "react";
+import { useTranslateTo } from "@/hooks/use-translate-to";
+import { memo, useEffect } from "react";
 import { DropdownMenu } from "../ui/dropdown-menu";
 import { LanguageDropdownContent } from "./languange-dropdown-content";
 import { LanguageDropdownTrigger } from "./languange-dropdown-trigger";
@@ -12,13 +13,23 @@ const LanguageSelector = ({
   supportedLanguages,
   defaultLocale,
 }: LanguageSelectorProps) => {
-  const [currentLanguage, setCurrentLanguage] = useState(defaultLocale);
+  // const [currentLanguage, setCurrentLanguage] = useState(defaultLocale);
+
+  const { language, setlanguage } = useTranslateTo();
+  //setlanguage(defaultLocale);
+  useEffect(() => {
+    setlanguage(defaultLocale);
+  }, []);
+
   const onChange = (language: string) => {
     console.log("language", language);
+    // setCurrentLanguage(language);
+    // localStorage.setItem("translate-to", language);
+    setlanguage(language);
   };
   return (
     <DropdownMenu>
-      <LanguageDropdownTrigger currentLanguage={currentLanguage} />
+      <LanguageDropdownTrigger currentLanguage={language} />
       <LanguageDropdownContent
         supportedLanguages={supportedLanguages}
         onChange={onChange}

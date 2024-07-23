@@ -37,8 +37,38 @@ export const getServiceWithTranslationsByCategory = async (
   }
 };
 
+export const getServiceWithTranslationsByCategories = async (
+  language: string,
+  categoryId: string[]
+) => {
+  // Map through categoryId to wrap each element in single quotes
+  const formattedCategoryIds = categoryId.map((id) => `'${id}'`).join(",");
+  console.log("[CATEGORIES]", formattedCategoryIds);
+  const baseQuery = baseQueryWithTranslation(language);
+
+  const query =
+    baseQuery.text + `WHERE s.category_id in (${formattedCategoryIds})`;
+
+  console.log(query);
+
+  try {
+    const data = await dbAppointment.$queryRawUnsafe<ServiceWithTranslation[]>(
+      query,
+      language
+    );
+    return data;
+  } catch (error) {
+    console.error("Failed :", error);
+    throw new Error("Failed");
+  }
+};
+
 export const getServiceWithTranslations = async (language: string) => {
-  const query = baseQueryWithTranslation(language);
+  const query = Prisma.sql`
+  ${baseQueryWithTranslation(language)}
+  ORDER BY s.category_id asc, s.display_order asc
+  `;
+
   try {
     const data = await dbAppointment.$queryRaw<ServiceWithTranslation[]>(query);
     return data;

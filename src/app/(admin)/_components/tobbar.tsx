@@ -17,7 +17,6 @@ const TopBar = () => {
               alt="logo"
               width={102}
               height={36}
-              objectFit="contain" // Use "cover" to fill the area, "contain" to ensure the image fits within the dimensions.
               className="h-full absolute -top-2 left-12"
             />
           </Link>

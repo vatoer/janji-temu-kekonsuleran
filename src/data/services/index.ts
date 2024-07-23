@@ -1,5 +1,9 @@
 import { dbAppointment } from "@/lib/db-appointment";
-export { getServiceWithTranslationsByCategory } from "./raw-query";
+export {
+  getServiceWithTranslations,
+  getServiceWithTranslationsByCategories,
+  getServiceWithTranslationsByCategory,
+} from "./raw-query";
 export type { ServiceWithTranslation } from "./raw-query";
 
 interface PassportService {
