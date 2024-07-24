@@ -66,7 +66,7 @@ export const getServiceWithTranslationsByCategories = async (
 export const getServiceWithTranslations = async (language: string) => {
   const query = Prisma.sql`
   ${baseQueryWithTranslation(language)}
-  ORDER BY s.category_id asc, s.display_order asc
+  ORDER BY s.display_order asc
   `;
 
   try {
