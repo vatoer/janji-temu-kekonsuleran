@@ -1,4 +1,4 @@
-import upsertName from "@/data/services/crud";
+import { updateDescription, upsertName } from "@/data/services/crud";
 import { ActionResponse } from "../response";
 
 interface UpsertResult {
@@ -13,14 +13,18 @@ export const upsertTranslation = async ({
 }: UpsertResult): Promise<ActionResponse<UpsertResult>> => {
   const { firstPart, rest: serviceId } = splitFirstAndRest(reference);
 
+  if (text === "") {
+    return { success: false, error: "Text cannot be empty" };
+  }
+
   try {
     switch (firstPart) {
       case "name":
         const upsert = await upsertName(serviceId, translateTo, text);
-
         break;
       case "description":
         // Upsert description
+        const update = await updateDescription(serviceId, translateTo, text);
         break;
       default:
         return { success: false, error: "Invalid reference" };

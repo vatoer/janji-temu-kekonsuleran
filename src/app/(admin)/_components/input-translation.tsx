@@ -17,6 +17,10 @@ const InputTranslation = ({
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     onBlur?.(event); // Call the onBlur prop with the event if onBlur is provided
   };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Call the onBlur prop with the event if onBlur is provided
+  };
   return (
     <input
       type="text"
@@ -25,6 +29,8 @@ const InputTranslation = ({
       onBlur={handleBlur}
       placeholder={placeholder ?? ""}
       value={value ?? ""}
+      onChange={handleChange}
+      //defaultValue={value ?? ""}
     />
   );
 };

@@ -5,12 +5,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale } from "next-intl/server";
 
 export async function AccordionLayananPaspor() {
-  const tl = await getTranslations("Layanan.paspor");
   const locale = await getLocale();
-  console.log({ tl, locale });
   const passportServices = await getPassportServices(locale);
 
   if (!passportServices.success) {

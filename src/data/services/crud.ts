@@ -1,6 +1,7 @@
+"use server";
 import { dbAppointment } from "@/lib/db-appointment";
 
-const upsertName = async (
+export const upsertName = async (
   serviceId: string,
   language: string,
   name: string
@@ -20,7 +21,7 @@ const upsertName = async (
         language: language,
       },
       update: {
-        name: "name",
+        name: name,
         updatedAt: new Date(),
       },
     });
@@ -32,7 +33,7 @@ const upsertName = async (
 };
 
 // description ONLY can be updated if it already exists
-const updateDescription = async (
+export const updateDescription = async (
   serviceId: string,
   language: string,
   description: string
@@ -56,5 +57,3 @@ const updateDescription = async (
     throw new Error("Failed to save data");
   }
 };
-
-export default upsertName;

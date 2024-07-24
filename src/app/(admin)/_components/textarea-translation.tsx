@@ -17,13 +17,20 @@ const TextareaTranslation = ({
   const handleBlur = (event: React.FocusEvent<HTMLTextAreaElement>) => {
     onBlur?.(event); // Call the onBlur prop with the event if onBlur is provided
   };
+
+  const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    // Call the onBlur prop with the event if onBlur is provided
+  };
+
   return (
     <textarea
       value={value ?? ""}
+      //defaultValue={value ?? ""}
       className="form-control p-1"
       id={id}
       onBlur={handleBlur}
       placeholder={placeholder ?? ""}
+      onChange={handleChange}
     />
   );
 };

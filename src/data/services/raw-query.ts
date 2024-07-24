@@ -47,7 +47,8 @@ export const getServiceWithTranslationsByCategories = async (
   const baseQuery = baseQueryWithTranslation(language);
 
   const query =
-    baseQuery.text + `WHERE s.category_id in (${formattedCategoryIds})`;
+    baseQuery.text +
+    `WHERE s.category_id in (${formattedCategoryIds}) ORDER BY s.display_order asc`;
 
   console.log(query);
 

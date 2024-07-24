@@ -6,7 +6,7 @@ import { AccordionLayananPaspor } from "./_components/accordion-layanan-paspor";
 
 export default function PublicPage() {
   return (
-    <div className="flex flex-col p-2 gap-2">
+    <div className="flex flex-col p-2 gap-2 min-h-full">
       <div className="flex flex-col md:flex-row justify-between w-full gap-2">
         <div className="flex flex-col gap-4 border-2 md:w-1/2 p-4 border-gray-200">
           <div>
@@ -28,7 +28,7 @@ export default function PublicPage() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-2 md:w-1/2 p-4 border-gray-200">
+        <div className="flex flex-col gap-4 border-2 md:w-1/2 p-4 border-gray-200 min-h-96">
           <div>
             <div className="flex flex-row justify-center">
               <HiDocumentText className="w-16 h-16" />

@@ -43,10 +43,10 @@ async function main() {
       },
       {
         categoryId: "legalisasi",
-        id: "apostille-akte-kelahiran",
+        id: "legalisasi-apostille",
         description:
           "Legalisasi-Apostille Akte Kelahiran/Kutipan Akte Kelahiran/Surat Keterangan Lahir/Surat Kenal Lahir/Akte Pernikahan dari Indonesia",
-        name: "Legalisasi-Apostille Akte Kelahiran",
+        name: "Legalisasi-Apostille",
         displayOrder: 40,
       },
       {
@@ -81,9 +81,8 @@ async function main() {
       {
         categoryId: "suket",
         id: "suket-kematian",
-        description:
-          "Surat Keterangan Kematian untuk Jenazah yang akan dibawa ke Indonesia",
-        name: "Surat Keterangan Kematian untuk Jenazah yang akan dibawa ke Indonesia",
+        description: "Surat Keterangan Kematian",
+        name: "Surat Keterangan Kematian",
         displayOrder: 90,
       },
       {

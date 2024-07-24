@@ -1,5 +1,6 @@
 "use client";
 import { getServices } from "@/actions/services";
+import { upsertTranslation } from "@/actions/services/crud";
 import { ServiceWithTranslation } from "@/data/services";
 import { useTranslateTo } from "@/hooks/use-translate-to";
 import { useEffect, useState } from "react";
@@ -18,15 +19,26 @@ const TranslationContainer = ({
   const [serviceWithTranslations, setServiceWithTranslations] = useState(
     initialServiceWithTranslations
   );
-  const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    console.log(event.target.value);
-    console.log(event.target.id);
-    console.log(language);
+  const handleBlurName = async (event: React.FocusEvent<HTMLInputElement>) => {
+    // console.log(event.target.value);
+    // console.log(event.target.id);
+    // console.log(language);
+    const upsertService = await upsertTranslation({
+      reference: event.target.id,
+      translateTo: language,
+      text: event.target.value,
+    });
+    console.log(upsertService);
   };
 
-  const handleBlurTextArea = (event: React.FocusEvent<HTMLTextAreaElement>) => {
-    console.log(event.target.value);
-    console.log(event.target.id);
+  const handleBlurDescription = async (
+    event: React.FocusEvent<HTMLTextAreaElement>
+  ) => {
+    const upsertService = await upsertTranslation({
+      reference: event.target.id,
+      translateTo: language,
+      text: event.target.value,
+    });
   };
 
   //
@@ -49,6 +61,7 @@ const TranslationContainer = ({
   return (
     <div className="flex flex-col gap-4">
       {serviceWithTranslations.map((service) => {
+        console.log(service);
         return (
           <div key={service.id}>
             <div className="flex flex-row gap-2">
@@ -69,14 +82,14 @@ const TranslationContainer = ({
                   name="name"
                   value={service.tname}
                   reference={service.id}
-                  onBlur={handleBlur}
+                  onBlur={handleBlurName}
                   placeholder={service.name}
                 />
                 <TextareaTranslation
                   name="description"
                   value={service.tdescription}
                   reference={service.id}
-                  onBlur={handleBlurTextArea}
+                  onBlur={handleBlurDescription}
                   placeholder={service.description}
                 />
               </div>
