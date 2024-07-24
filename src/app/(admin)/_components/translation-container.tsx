@@ -14,12 +14,14 @@ const TranslationContainer = ({
   initialServiceWithTranslations,
   defaultTranslateTo,
 }: TranslationContainerProps) => {
+  const { language } = useTranslateTo();
   const [serviceWithTranslations, setServiceWithTranslations] = useState(
     initialServiceWithTranslations
   );
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     console.log(event.target.value);
     console.log(event.target.id);
+    console.log(language);
   };
 
   const handleBlurTextArea = (event: React.FocusEvent<HTMLTextAreaElement>) => {
@@ -28,7 +30,6 @@ const TranslationContainer = ({
   };
 
   //
-  const { language } = useTranslateTo();
   useEffect(() => {
     console.log("serviceWithTranslations", language);
     // fetch data
