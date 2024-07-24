@@ -106,3 +106,11 @@ Adhering to naming conventions and best practices in PostgreSQL helps maintain a
 8. **Security Best Practices**: Implement security best practices, such as using roles and privileges to control access.
 
 By following these naming conventions and best practices, you can ensure that your PostgreSQL database is well-structured, maintainable, and easy to understand.
+
+# BACKUP RESTORE
+
+```sh
+pg_dump -U postgres -h localhost -F c -b -v -f mydatabase.backup mydatabase
+
+pg_restore -U postgres -h localhost -d mydatabase -v mydatabase.backup
+```
