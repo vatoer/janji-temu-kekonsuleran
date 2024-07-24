@@ -1,9 +1,15 @@
-const SettingServiceFullDescription = () => {
+import { MDViewer } from "./_components/editor";
+
+const SettingServiceFullDescriptionPage = () => {
   return (
-    <div>
+    <div className="w-full lg:min-h-[calc(100vh-86px)] h-auto">
       <h1>Service Full Description</h1>
+      <div className="flex flex-row w-full h-full">
+        {/* <Editor /> */}
+        <MDViewer />
+      </div>
     </div>
   );
 };
 
-export default SettingServiceFullDescription;
+export default SettingServiceFullDescriptionPage;
