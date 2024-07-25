@@ -1,0 +1,240 @@
+/* src/app/custom.css */
+
+/* Import Tailwind's base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Base styles for custom components */
+  .markdown-viewer {
+    @apply prose;
+  }
+}
+
+@layer components {
+  /* Custom styles for specific components */
+  .md-editor-preview ol li {
+    list-style-type: decimal !important;
+  }
+
+  .md-editor-preview ul li {
+    list-style-type: disc !important;
+  }
+}
+
+/* src/app/custom.css */
+
+/* Scoped base styles for custom components */
+.md-editor-preview-x {
+  /* Ensure consistent box-sizing */
+  box-sizing: border-box;
+
+  /* Basic reset for margins and padding */
+  margin: 0;
+  padding: 0;
+
+  /* Set a basic font for the component */
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Ensure images and videos inside the custom component are responsive */
+.md-editor-preview-x img,
+.md-editor-preview-x video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Base styles for headings inside the custom component */
+.md-editor-preview-x h1,
+.md-editor-preview-x h2,
+.md-editor-preview-x h3,
+.md-editor-preview-x h4,
+.md-editor-preview-x h5,
+.md-editor-preview-x h6 {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.md-editor-preview-x h1 {
+  font-size: 2rem;
+}
+
+.md-editor-preview-x h2 {
+  font-size: 1.5rem;
+}
+
+.md-editor-preview-x h3 {
+  font-size: 1.25rem;
+}
+
+.md-editor-preview-x h4 {
+  font-size: 1rem;
+}
+
+.md-editor-preview-x h5 {
+  font-size: 0.875rem;
+}
+
+.md-editor-preview-x h6 {
+  font-size: 0.75rem;
+}
+
+/* Base styles for paragraphs inside the custom component */
+.md-editor-preview-x p {
+  margin-bottom: 1rem;
+}
+
+/* Base styles for lists inside the custom component */
+.md-editor-preview-x ol,
+.md-editor-preview-x ul {
+  margin-bottom: 1rem;
+}
+
+.md-editor-preview-x ol {
+  list-style-type: decimal;
+}
+
+.md-editor-preview-x ul {
+  list-style-type: disc;
+}
+
+.md-editor-preview-x li {
+  margin-bottom: 0.5rem;
+}
+
+/* Base styles for links inside the custom component */
+.md-editor-preview-x a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.md-editor-preview-x a:hover {
+  text-decoration: underline;
+}
+
+/* Base styles for blockquotes inside the custom component */
+.md-editor-preview-x blockquote {
+  margin: 0;
+  padding: 1rem;
+  border-left: 4px solid #eee;
+  background: #f9f9f9;
+}
+
+/* Base styles for code inside the custom component */
+.md-editor-preview-x code {
+  font-family: monospace;
+  background: #f5f5f5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+/* Base styles for preformatted text inside the custom component */
+.md-editor-preview-x pre {
+  font-family: monospace;
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* Base styles for tables inside the custom component */
+.md-editor-preview-x table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.md-editor-preview-x th,
+.md-editor-preview-x td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.md-editor-preview-x th {
+  background: #f4f4f4;
+}
+
+/* Base styles for forms inside the custom component */
+.md-editor-preview-x input,
+.md-editor-preview-x textarea,
+.md-editor-preview-x select,
+.md-editor-preview-x button {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}
+
+.md-editor-preview-x input,
+.md-editor-preview-x textarea,
+.md-editor-preview-x select {
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.md-editor-preview-x button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.md-editor-preview-x button:hover {
+  background-color: #0056b3;
+}
+
+/* Base styles for containers and sections inside the custom component */
+.md-editor-preview-x .container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.md-editor-preview-x section {
+  margin-bottom: 2rem;
+}
+
+.md-editor-preview-x header,
+.md-editor-preview-x footer {
+  padding: 1rem 0;
+  background: #f8f9fa;
+}
+
+.md-editor-preview-x main {
+  padding: 2rem 0;
+}
+
+/* Utility classes specific to the custom component */
+.md-editor-preview-x .text-center {
+  text-align: center;
+}
+
+.md-editor-preview-x .text-right {
+  text-align: right;
+}
+
+.md-editor-preview-x .text-left {
+  text-align: left;
+}
+
+.md-editor-preview-x .bg-light {
+  background-color: #f8f9fa;
+}
+
+.md-editor-preview-x .bg-dark {
+  background-color: #343a40;
+}
+
+.md-editor-preview-x .text-light {
+  color: #f8f9fa;
+}
+
+.md-editor-preview-x .text-dark {
+  color: #343a40;
+}

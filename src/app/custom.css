@@ -1,0 +1,27 @@
+/* src/app/custom.css */
+
+/* Import Tailwind's base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ul {
+    @apply list-disc;
+  }
+  ol {
+    @apply list-decimal;
+  }
+}
+@layer components {
+}
+
+/* .md-editor-preview ol {
+  list-style-type: decimal;
+  font-size: medium;
+}
+
+.md-editor-preview ul {
+  list-style-type: disc;
+  font-size: medium;
+} */
