@@ -16,6 +16,15 @@
 @layer components {
 }
 
+.wmde-markdown {
+  @apply px-2 !important; /* Applies padding of 0.625rem (10px) on all sides */
+  /* padding: 30px !important; Corrected padding syntax */
+}
+
+.md-editor-preview {
+  @apply font-normal p-0 !important; /* Applies font-size of 0.875rem (14px) */
+}
+
 /* .md-editor-preview ol {
   list-style-type: decimal;
   font-size: medium;
