@@ -1,6 +1,6 @@
 import { NextIntlClientProvider } from "next-intl";
 
-import { getMessages } from "next-intl/server";
+import { getLocale, getMessages } from "next-intl/server";
 import "./globals.css";
 
 export default async function LocaleLayout({
@@ -13,7 +13,7 @@ export default async function LocaleLayout({
   //const locale = await getLocale();
 
   // Retrieve the locale from cookies or default to 'id'
-  const locale = "en";
+  const locale = await getLocale();
   const messages = await getMessages({ locale });
 
   return (
