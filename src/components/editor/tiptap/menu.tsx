@@ -5,11 +5,24 @@ import { Bold, Italic, List, Save, Underline } from "lucide-react";
 
 interface MenuProps {
   editor: Editor;
+  onSave?: (content: string) => void;
 }
-const Menu = ({ editor }: MenuProps) => {
+const Menu = ({ editor, onSave }: MenuProps) => {
+  const handleOnSave = () => {
+    if (editor) {
+      console.log("Save content");
+      const contentText = editor.getText();
+      const contentHTML = editor.getHTML();
+      console.log(contentText);
+      if (onSave) {
+        console.log("[Menu] onSave function called");
+        onSave(contentHTML);
+      }
+    }
+  };
   return (
     <div className="menu flex px-2">
-      <Button variant={"outline"}>
+      <Button variant={"outline"} onClick={handleOnSave}>
         <Save className="w-4 h-4" />
       </Button>
       <Button
