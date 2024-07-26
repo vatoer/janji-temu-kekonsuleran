@@ -12,12 +12,14 @@ const ServiceDescriptionPage = async ({
   // get string description from serviceId and language
   // on server you can access directily from /src/data/service-description
   const serviceDescription = await getServiceDescription(serviceId, language);
+  let description;
 
   if (!serviceDescription) {
-    return <div>Not found</div>;
+    // return <div>Not found</div>;
+    console.log("Not found, should return empty editor");
+  } else {
+    description = serviceDescription.description;
   }
-
-  const { description } = serviceDescription;
 
   return (
     <div>
