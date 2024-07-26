@@ -25,6 +25,11 @@
   @apply font-normal p-0 !important; /* Applies font-size of 0.875rem (14px) */
 }
 
+.rtl {
+  direction: rtl;
+  text-align: right;
+}
+
 /* .md-editor-preview ol {
   list-style-type: decimal;
   font-size: medium;
