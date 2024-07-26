@@ -14,6 +14,18 @@ datasource db {
   url      = env("DATABASE_URL_APPOINTMENT")
 }
 
+// Define the enum
+enum Status {
+  DRAFT
+  IN_REVIEW
+  NEEDS_REVISIONS
+  APPROVED
+  SCHEDULED
+  PUBLISHED
+  ARCHIVED
+  REJECTED
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -79,8 +91,29 @@ model Service {
   documentRequirement DocumentRequirement[]
   createdAt           DateTime              @default(now()) @map("created_at")
   updatedAt           DateTime?             @updatedAt @map("updated_at")
+  ServiceDescription  ServiceDescription[]
 
   @@map("services")
+}
+
+model ServiceDescription {
+  id          String   @id @default(cuid())
+  name        String
+  description String?  @db.Text
+  language    String
+  locale      String?
+  default     Boolean  @default(false)
+  status      Status   @default(DRAFT)
+  serviceId   String   @map("service_id")
+  service     Service  @relation(fields: [serviceId], references: [id])
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  createdBy   String?  @map("created_by")
+  updatedBy   String?  @map("updated_by")
+  approvedBy  String?  @map("approved_by")
+
+  @@unique([serviceId, language])
+  @@map("service_descriptions")
 }
 
 model ServiceTranslation {
