@@ -7,7 +7,10 @@ export interface RouteItem {
   displayOrder?: number;
   displayAsMenu?: boolean;
   cascadePermissions?: boolean; // cascade permissions to sub routes
+  subRoutes?: RouteItem[];
 }
+
+export const routes: RouteItem[] = [];
 
 export const authRoutes = [
   "/",

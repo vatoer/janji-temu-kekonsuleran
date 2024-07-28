@@ -1,5 +1,6 @@
 "use client";
 import { iconMap } from "@/components/icon-map";
+import SidebarItemGroup from "@/components/navigations/sidebar-item-group";
 import useToggleSidebar from "@/hooks/use-toggle-sidebar";
 import { RouteItem } from "@/route";
 import Sidebar from "@components/navigations/sidebar";
@@ -20,14 +21,25 @@ export const AdminSidebar = ({ routes }: SidebarProps) => {
             ? iconMap[route.iconName] || AlertCircle
             : AlertTriangle; // Map the icon string to the actual icon component
 
-          return (
-            <SidebarItem
-              key={index}
-              icon={Icon}
-              {...route}
-              collapse={collapse}
-            />
-          );
+          if (route.subRoutes) {
+            return (
+              <SidebarItemGroup
+                key={index}
+                icon={Icon}
+                {...route}
+                collapse={collapse}
+              />
+            );
+          } else {
+            return (
+              <SidebarItem
+                key={index}
+                icon={Icon}
+                {...route}
+                collapse={collapse}
+              />
+            );
+          }
         })}
       </div>
     </Sidebar>
