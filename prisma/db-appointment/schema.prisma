@@ -26,6 +26,15 @@ enum Status {
   REJECTED
 }
 
+enum ServiceStatus {
+  DRAFT
+  IN_REVIEW
+  NEEDS_REVISIONS
+  APPROVED
+  SCHEDULED
+  PUBLISHED
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -86,6 +95,7 @@ model Service {
   categoryId          String?               @map("category_id")
   category            Category?             @relation(fields: [categoryId], references: [id])
   displayOrder        Int                   @default(0) @map("display_order")
+  status              Status                @default(DRAFT)
   serviceRequirement  ServiceRequirement[]
   serviceTranslation  ServiceTranslation[]
   documentRequirement DocumentRequirement[]

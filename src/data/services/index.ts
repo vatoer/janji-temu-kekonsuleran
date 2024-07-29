@@ -39,3 +39,13 @@ const getServicesByCategory = async (language: string, categoryId: string) => {
 };
 
 export default getServicesByCategory;
+
+export const getServices = async () => {
+  try {
+    const data = await dbAppointment.service.findMany({});
+    return data;
+  } catch (error) {
+    console.error("Failed :", error);
+    throw new Error("Failed");
+  }
+};

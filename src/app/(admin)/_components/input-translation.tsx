@@ -1,26 +1,42 @@
+import { useEffect, useRef, useState } from "react";
+
 interface InputTranslationProps {
   name: string; // column name
-  value?: string | null;
+  value: string | null;
   reference: string; // reference id
   placeholder?: string | null;
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void; // Updated to accept an event parameter
+  onBlur?: (
+    event: React.FocusEvent<HTMLInputElement>,
+    value: string | null
+  ) => void; // Updated to accept an event and value parameter
 }
+
 const InputTranslation = ({
   name,
-  value,
+  value = "", // Default to an empty string if value is not provided
   reference,
   placeholder,
   onBlur,
 }: InputTranslationProps) => {
+  const [inputValue, setInputValue] = useState(value);
   const id = `${name}-${reference}`;
-  // Updated onBlur handler to pass the event to the parent component
+
+  useEffect(() => {
+    setInputValue(value ?? ""); // Update state when value prop changes
+  }, [value]);
+
   const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    onBlur?.(event); // Call the onBlur prop with the event if onBlur is provided
+    if (onBlur) {
+      onBlur(event, inputValue); // Call the onBlur prop with the event and current input value
+    }
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // Call the onBlur prop with the event if onBlur is provided
+    setInputValue(event.target.value);
   };
+
+  const inputRef = useRef<HTMLInputElement>(null);
+
   return (
     <input
       type="text"
@@ -28,9 +44,9 @@ const InputTranslation = ({
       id={id}
       onBlur={handleBlur}
       placeholder={placeholder ?? ""}
-      value={value ?? ""}
+      ref={inputRef}
+      value={inputValue ?? ""} // Ensure value is always a string
       onChange={handleChange}
-      //defaultValue={value ?? ""}
     />
   );
 };

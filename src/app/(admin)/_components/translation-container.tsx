@@ -5,7 +5,6 @@ import { ServiceWithTranslation } from "@/data/services";
 import { useTranslateTo } from "@/hooks/use-translate-to";
 import { useEffect, useState } from "react";
 import InputTranslation from "./input-translation";
-import TextareaTranslation from "./textarea-translation";
 
 interface TranslationContainerProps {
   initialServiceWithTranslations: ServiceWithTranslation[];
@@ -29,16 +28,6 @@ const TranslationContainer = ({
       text: event.target.value,
     });
     console.log(upsertService);
-  };
-
-  const handleBlurDescription = async (
-    event: React.FocusEvent<HTMLTextAreaElement>
-  ) => {
-    const upsertService = await upsertTranslation({
-      reference: event.target.id,
-      translateTo: language,
-      text: event.target.value,
-    });
   };
 
   //
@@ -67,13 +56,11 @@ const TranslationContainer = ({
             <div className="flex flex-row gap-2">
               <div className="flex flex-col w-1/3 gap-1">
                 <div>
-                  <span className="font-semibold">name : </span>
-                  <label htmlFor={`name-${service.id}`}>{service.name}</label>
-                </div>
-                <div>
-                  <span className="font-semibold">description : </span>
-                  <label htmlFor={`description-${service.id}`}>
-                    {service.description}
+                  <label
+                    className="font-semibold"
+                    htmlFor={`name-${service.id}`}
+                  >
+                    {service.name}
                   </label>
                 </div>
               </div>
@@ -84,13 +71,6 @@ const TranslationContainer = ({
                   reference={service.id}
                   onBlur={handleBlurName}
                   placeholder={service.name}
-                />
-                <TextareaTranslation
-                  name="description"
-                  value={service.tdescription}
-                  reference={service.id}
-                  onBlur={handleBlurDescription}
-                  placeholder={service.description}
                 />
               </div>
             </div>
