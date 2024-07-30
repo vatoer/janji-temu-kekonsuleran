@@ -4,6 +4,7 @@ import { Prisma } from "@prisma-db-appointment/client";
 export interface ServiceWithTranslation {
   id: string;
   name: string;
+  status: string;
   description: string | null;
   tname: string | null;
   tdescription: string | null;

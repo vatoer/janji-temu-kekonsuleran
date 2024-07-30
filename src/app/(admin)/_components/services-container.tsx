@@ -4,7 +4,8 @@ import { upsertTranslation } from "@/actions/services/crud";
 import { Button } from "@/components/ui/button";
 import { ServiceWithTranslation } from "@/data/services";
 import { useTranslateTo } from "@/hooks/use-translate-to";
-import { Languages, Plus } from "lucide-react";
+import { Languages, Pencil, Plus } from "lucide-react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import InputTranslation from "./input-translation";
 
@@ -54,10 +55,12 @@ const ServicesContainer = ({
       <div>
         <div className="flex flex-row">
           <div>
-            <Button variant={"outline"} className="rounded-none">
-              <Plus size={14} className="mx-1" />
-              <span>Tambah</span>
-            </Button>
+            <Link href="/setting/service/create">
+              <Button variant={"outline"} className="rounded-none">
+                <Plus size={14} className="mx-1" />
+                <span>Tambah</span>
+              </Button>
+            </Link>
           </div>
           <div>
             <Button variant={"outline"} className="rounded-none">
@@ -67,13 +70,13 @@ const ServicesContainer = ({
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col mt-2 border-t-2 w-full">
         {serviceWithTranslations.map((service) => {
           console.log(service);
           return (
-            <div key={service.id}>
-              <div className="flex flex-row gap-2">
-                <div className="flex flex-col w-1/3 gap-1">
+            <div key={service.id} className="">
+              <div className="flex flex-row gap-2 border-2 border-t-0 py-4 px-2">
+                <div className="flex flex-col w-[400px] gap-1">
                   <div>
                     <label
                       className="font-semibold"
@@ -83,7 +86,15 @@ const ServicesContainer = ({
                     </label>
                   </div>
                 </div>
-                <div className="flex flex-col w-2/3 gap-1">
+                <div>
+                  <Link href={`/setting/service/detail/${service.id}/id`}>
+                    <Button variant={"ghost"} className="">
+                      <Pencil size={16} />
+                    </Button>
+                  </Link>
+                </div>
+
+                <div className="flex flex-col w-full gap-1">
                   <InputTranslation
                     name="name"
                     value={service.tname}
@@ -91,6 +102,15 @@ const ServicesContainer = ({
                     onBlur={handleBlurName}
                     placeholder={service.name}
                   />
+                </div>
+                <div>
+                  <Link
+                    href={`/setting/service/detail/${service.id}/${language}`}
+                  >
+                    <Button variant={"ghost"} className="">
+                      <Pencil size={16} />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -19,7 +19,8 @@ const LanguageSelector = ({
   //setlanguage(defaultLocale);
   useEffect(() => {
     setlanguage(defaultLocale);
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [defaultLocale]);
 
   const onChange = (language: string) => {
     console.log("language", language);
