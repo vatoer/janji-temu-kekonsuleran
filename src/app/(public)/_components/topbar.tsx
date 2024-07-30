@@ -1,3 +1,4 @@
+import Image from "next/image";
 const TopBar = () => {
   return (
     <div className="topbar">
@@ -5,7 +6,7 @@ const TopBar = () => {
         <div className="topbar__content">
           <div className="topbar__content__left">
             <a href="/" className="topbar__content__left__logo">
-              <img src="/images/logo.png" alt="logo" />
+              <Image src="/images/logo.png" alt="logo" />
             </a>
           </div>
           <div className="topbar__content__right">

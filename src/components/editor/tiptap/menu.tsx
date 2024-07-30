@@ -21,33 +21,33 @@ const Menu = ({ editor, onSave }: MenuProps) => {
     }
   };
   return (
-    <div className="menu flex px-2">
-      <Button variant={"outline"} onClick={handleOnSave}>
+    <div className="menu flex px-2 border border-x-0">
+      <Button variant={"ghost"} onClick={handleOnSave}>
         <Save className="w-4 h-4" />
       </Button>
       <Button
-        variant={"outline"}
+        variant={"ghost"}
         onClick={() => editor.chain().focus().toggleBold().run()}
         className={cn(editor.isActive("bold") ? "bg-gray-300" : "")}
       >
         <Bold className="w-4 h-4" />
       </Button>
       <Button
-        variant={"outline"}
+        variant={"ghost"}
         onClick={() => editor.chain().focus().toggleItalic().run()}
         className={cn(editor.isActive("italic") ? "is-active" : "")}
       >
         <Italic className="w-4 h-4" />
       </Button>
       <Button
-        variant={"outline"}
+        variant={"ghost"}
         onClick={() => editor.chain().focus().toggleUnderline().run()}
         className={cn(editor.isActive("underline") ? "is-active" : "")}
       >
         <Underline className="w-4 h-4" />
       </Button>
       <Button
-        variant={"outline"}
+        variant={"ghost"}
         onClick={() => editor.chain().focus().toggleBulletList().run()}
         className={cn(editor.isActive("bulletList") ? "is-active" : "")}
       >

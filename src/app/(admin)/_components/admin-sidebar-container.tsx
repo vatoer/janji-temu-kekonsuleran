@@ -65,7 +65,7 @@ const AdminSidebarContainer = () => {
   return (
     <div
       className="flex flex-col min-h-[calc(100vh-76px)] h-auto overflow-y-auto overflow-x-hidden
-    bg-gray-100"
+    bg-gray-100 "
     >
       <AdminSidebar routes={routes} />
     </div>

@@ -10,21 +10,28 @@ import Underline from "@tiptap/extension-underline";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 
+import { cn } from "@/lib/utils";
 import Menu from "./tiptap/menu";
 
 interface TiptapProps {
   content?: string;
   editable?: boolean;
   onSave?: (content: string) => void;
+  editorClassName?: string;
 }
-const Tiptap = ({ content = "", editable = true, onSave }: TiptapProps) => {
+const Tiptap = ({
+  content = "",
+  editable = true,
+  onSave,
+  editorClassName,
+}: TiptapProps) => {
   const editor = useEditor({
     extensions: [StarterKit, Underline],
     immediatelyRender: false,
     content: content,
     editorProps: {
       attributes: {
-        class: "prose prose-sm sm:prose-base  m-5 focus:outline-none",
+        class: "prose prose-sm sm:prose-base m-2 focus:outline-none max-w-none",
       },
     },
   });
@@ -36,7 +43,13 @@ const Tiptap = ({ content = "", editable = true, onSave }: TiptapProps) => {
   return (
     <>
       <Menu editor={editor} onSave={onSave} />
-      <EditorContent editor={editor} />
+      <EditorContent
+        editor={editor}
+        className={cn(
+          "bg-white mx-2 mt-2 max-w-screen",
+          editorClassName && editorClassName
+        )}
+      />
     </>
   );
 };

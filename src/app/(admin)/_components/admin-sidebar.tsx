@@ -14,7 +14,7 @@ export const AdminSidebar = ({ routes }: SidebarProps) => {
   const { collapse, setCollapse } = useToggleSidebar();
 
   return (
-    <Sidebar collapse={collapse}>
+    <Sidebar collapse={collapse} className="">
       <div>
         {routes.map((route, index) => {
           const Icon = route.iconName
