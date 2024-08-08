@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Editor } from "@tiptap/react";
-import { Bold, Italic, List, Save, Underline } from "lucide-react";
+import { Bold, Italic, List, ListOrdered, Save, Underline } from "lucide-react";
 
 interface MenuProps {
   editor: Editor;
@@ -22,36 +22,68 @@ const Menu = ({ editor, onSave }: MenuProps) => {
   };
   return (
     <div className="menu flex px-2 border border-x-0">
-      <Button variant={"ghost"} onClick={handleOnSave}>
+      <Button
+        type="button"
+        variant={"ghost"}
+        onClick={handleOnSave}
+        className="rounded-none"
+      >
         <Save className="w-4 h-4" />
       </Button>
       <Button
+        type="button"
         variant={"ghost"}
         onClick={() => editor.chain().focus().toggleBold().run()}
-        className={cn(editor.isActive("bold") ? "bg-gray-300" : "")}
+        className={cn(
+          "rounded-none",
+          editor.isActive("bold") ? "bg-gray-300" : ""
+        )}
       >
         <Bold className="w-4 h-4" />
       </Button>
       <Button
+        type="button"
         variant={"ghost"}
         onClick={() => editor.chain().focus().toggleItalic().run()}
-        className={cn(editor.isActive("italic") ? "is-active" : "")}
+        className={cn(
+          "rounded-none",
+          editor.isActive("italic") ? "is-active" : ""
+        )}
       >
         <Italic className="w-4 h-4" />
       </Button>
       <Button
+        type="button"
         variant={"ghost"}
         onClick={() => editor.chain().focus().toggleUnderline().run()}
-        className={cn(editor.isActive("underline") ? "is-active" : "")}
+        className={cn(
+          "rounded-none",
+          editor.isActive("underline") ? "is-active" : ""
+        )}
       >
         <Underline className="w-4 h-4" />
       </Button>
       <Button
+        type="button"
         variant={"ghost"}
         onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={cn(editor.isActive("bulletList") ? "is-active" : "")}
+        className={cn(
+          "rounded-none",
+          editor.isActive("bulletList") ? "is-active" : ""
+        )}
       >
         <List className="w-4 h-4" />
+      </Button>
+      <Button
+        type="button"
+        variant={"ghost"}
+        onClick={() => editor.chain().focus().toggleOrderedList().run()}
+        className={cn(
+          "rounded-none",
+          editor.isActive("orderedList") ? "is-active" : ""
+        )}
+      >
+        <ListOrdered className="w-4 h-4" />
       </Button>
     </div>
   );

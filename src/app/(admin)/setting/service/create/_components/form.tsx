@@ -24,9 +24,9 @@ export const FormService = () => {
   return (
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit((data) => console.log(data))}>
-        <FormRow fullKey="id" label="ID">
+        <FormRow fullKey="service-id" label="ID">
           <input
-            id="id"
+            id="service-id"
             {...register("id")}
             type="text"
             className="border-2 border-gray-300 p-2 rounded w-full"

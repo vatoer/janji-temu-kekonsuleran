@@ -6,6 +6,7 @@
 // import ListItem from "@tiptap/extension-list-item";
 // import Paragraph from "@tiptap/extension-paragraph";
 // import Text from "@tiptap/extension-text";
+import "@/app/styles/tiptap.css";
 import Underline from "@tiptap/extension-underline";
 import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
